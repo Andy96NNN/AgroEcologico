@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "179834028970",
+    "project_id": "hu-agroecologico",
+    "storage_bucket": "hu-agroecologico.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:179834028970:android:e550c98460bc369e9821d3",
+        "android_client_info": {
+          "package_name": "com.garzonrueda.agroecologico"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "179834028970-1sqtugr9qfu0ob58a3f5mnl66fp8f4t0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJtcfohktjF8LCMseoCY3EfwvG47ZUvSQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "179834028970-1sqtugr9qfu0ob58a3f5mnl66fp8f4t0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
