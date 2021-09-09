@@ -10,6 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AgroEcologico">
         <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SellerHomeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SellerAuthActivity"
+            android:exported="true" />
+        <activity
             android:name=".SalesUnitActivity"
             android:exported="true" />
         <activity
@@ -19,7 +34,7 @@
             android:name=".HomeActivity"
             android:exported="true" />
         <activity
-            android:name=".AuthActivity"
+            android:name=".AdminAuthActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

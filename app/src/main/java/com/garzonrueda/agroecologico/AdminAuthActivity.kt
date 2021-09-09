@@ -4,48 +4,69 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import com.garzonrueda.agroecologico.databinding.ActivityAuthBinding
+import com.garzonrueda.agroecologico.databinding.ActivityAdminAuthBinding
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
-class AuthActivity : AppCompatActivity() {
+class AdminAuthActivity : AppCompatActivity() {
 
-    private lateinit var viewBinding: ActivityAuthBinding
+    private lateinit var viewBinding: ActivityAdminAuthBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewBinding = ActivityAuthBinding.inflate(LayoutInflater.from(applicationContext))
+        viewBinding = ActivityAdminAuthBinding.inflate(LayoutInflater.from(applicationContext))
         setContentView(viewBinding.root)
 
         // Eventos de Analytics
-        val analytics = FirebaseAnalytics.getInstance(this)
-        val bundle = Bundle()
-        bundle.putString("message", "Intergación de Firebase Completa!")
-        analytics.logEvent("InitScreen", bundle)
-
-        // Database
-        val database = FirebaseDatabase.getInstance().reference
+//        val analytics = FirebaseAnalytics.getInstance(this)
+//        val bundle = Bundle()
+//        bundle.putString("message", "Intergación de Firebase Completa!")
+//        analytics.logEvent("InitScreen", bundle)
 
         // SETUP
-        setup(database)
+        setup()
 
     }
 
-    private fun setup(database: DatabaseReference) {
+    private fun setup() {
 
-        title = "Iniciar Sesión"
+        title = "AgroEcologico - Iniciar Sesión - ADMIN"
+        viewBinding.etUsrname.requestFocus()
+
+        val usrName = viewBinding.etUsrname.text
+        val pswd = viewBinding.pwdInput.text
+//        val userDBReference = FirebaseDatabase.getInstance().reference
+//
+//        val listenerDB = object: ValueEventListener {
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//
+//                val data = snapshot.child(usrName).child("rol").toString()
+//                Toast.makeText(this@AdminAuthActivity, data, Toast.LENGTH_LONG).show()
+//
+//            }
+//
+//            override fun onCancelled(error: DatabaseError) {
+//
+//            }
+//
+//        }
 
         viewBinding.loginButton.setOnClickListener {
-            if (viewBinding.emailInput.text.isNotEmpty()
-                && viewBinding.pwdInput.text.isNotEmpty()
-            ) {
+            if (usrName.isNotEmpty() && pswd.isNotEmpty()) {
+
+
+//                val query = userDBReference.child(usrName)
+//                query.addValueEventListener(listenerDB)
 
                 FirebaseAuth.getInstance()
                     .signInWithEmailAndPassword(
-                        viewBinding.emailInput.text.toString(), viewBinding.pwdInput.text.toString()
+                        usrName.toString(), pswd.toString()
                     ).addOnCompleteListener {
 
                         if (it.isSuccessful) {
@@ -73,7 +94,7 @@ class AuthActivity : AppCompatActivity() {
 
     private fun goHome(email: String, provider: ProviderType) {
 
-        viewBinding.emailInput.text.clear()
+        viewBinding.etUsrname.text.clear()
         viewBinding.pwdInput.text.clear()
 
         val homeIntent = Intent(this, HomeActivity::class.java).apply {
@@ -81,6 +102,6 @@ class AuthActivity : AppCompatActivity() {
             putExtra("provider", provider.toString())
         }
         startActivity(homeIntent)
-        viewBinding.emailInput.requestFocus()
+        viewBinding.etUsrname.requestFocus()
     }
 }
