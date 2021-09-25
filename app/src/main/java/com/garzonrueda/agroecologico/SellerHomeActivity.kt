@@ -1,5 +1,6 @@
 package com.garzonrueda.agroecologico
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,10 +16,18 @@ class SellerHomeActivity : AppCompatActivity() {
         viewBinding = ActivitySellerHomeBinding.inflate(LayoutInflater.from(applicationContext))
         setContentView(viewBinding.root)
 
-//        setup()
+        setup()
     }
 
     private fun setup() {
-        TODO("Not yet implemented")
+        val bundle: Bundle? = intent.extras
+        val sellerEmail = bundle?.getString("email")
+
+        viewBinding.btnSalesPointView.setOnClickListener {
+            val viewSPIntent = Intent(this, SalesPointViewActivity::class.java).apply {
+                putExtra("email", sellerEmail)
+            }
+            startActivity(viewSPIntent)
+        }
     }
 }

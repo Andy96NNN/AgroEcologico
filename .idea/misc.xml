@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AppsMoviles/Projects/Kotlin_2/AgroEcologico/app/src/main/res/layout/activity_custom_sales_point.xml" value="0.33" />
+        <entry key="..\:/AppsMoviles/Projects/Kotlin_2/AgroEcologico/app/src/main/res/layout/activity_main.xml" value="0.30625" />
+        <entry key="..\:/AppsMoviles/Projects/Kotlin_2/AgroEcologico/app/src/main/res/layout/activity_sales_point.xml" value="0.20885416666666667" />
+        <entry key="..\:/AppsMoviles/Projects/Kotlin_2/AgroEcologico/app/src/main/res/layout/activity_seller_auth.xml" value="0.30625" />
+        <entry key="..\:/AppsMoviles/Projects/Kotlin_2/AgroEcologico/app/src/main/res/layout/activity_seller_home.xml" value="0.20885416666666667" />
+        <entry key="..\:/AppsMoviles/Projects/Kotlin_2/AgroEcologico/app/src/main/res/layout/activity_view_spactivity.xml" value="0.33" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+</project>
